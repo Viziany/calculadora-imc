@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Calculadora de IMC</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="container">
+    <header class="header">
+      <h1>Calculadora de IMC</h1>
+      <p class="subtitle">
+        Índice de Masa Corporal = peso (kg) / estatura (m)²
+      </p>
+      <Br>
+      <p class="subtitle">
+        Escribe los datos completos y despues coloca el punto decimal requerido 
+      </p>
+    </header>
+
+    <form id="imc-form" class="form" novalidate>
+      <div class="field">
+        <label for="peso">Peso (kg)</label>
+        <input
+          type="number"
+          id="peso"
+          name="peso"
+          placeholder="Ej. 50"
+          step="0.1"
+          min="1"
+          max="300"
+          inputmode="decimal"
+          required
+        />
+        <small class="error-msg" data-error-for="peso"></small>
+      </div>
+
+      <div class="field">
+        <label for="estatura">Estatura (m)</label>
+        <input
+          type="number"
+          id="estatura"
+          name="estatura"
+          placeholder="Ej. 1.70"
+          step="0.01"
+          min="0.5"
+          max="2.5"
+          inputmode="decimal"
+          required
+        />
+        <small class="error-msg" data-error-for="estatura"></small>
+      </div>
+
+      <div class="actions">
+        <button type="submit" class="btn btn-primary">Calcular</button>
+        <button type="reset" class="btn btn-secondary" id="btn-reset">Limpiar</button>
+      </div>
+    </form>
+
+    <!-- Panel de resultado -->
+    <section id="resultado" class="resultado hidden" aria-live="polite">
+      <h2>Tu resultado</h2>
+      <p class="imc-value">
+        IMC: <span id="imc-numero">0.00</span> kg/m²
+      </p>
+      <p id="imc-categoria" class="imc-category">—</p>
+      <p id="imc-consejo" class="imc-advice"></p>
+    </section>
+
+    <!-- Tabla de referencia -->
+    <section class="referencia">
+      <h3>Interpretación del IMC</h3>
+      <ul>
+        <li><span class="tag tag-bajo">Bajo peso</span> Menos de 18.5</li>
+        <li><span class="tag tag-saludable">Peso saludable</span> 18.5 – 24.9</li>
+        <li><span class="tag tag-sobrepeso">Sobrepeso</span> 25.0 – 29.9</li>
+        <li><span class="tag tag-obesidad">Obesidad</span> 30.0 o más</li>
+      </ul>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
